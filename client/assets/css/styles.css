@@ -186,7 +186,7 @@
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     }
   }
-  /* Product Page */
+  /* Products Page */
 .product-page .product-wrapper {
   display: flex;
   flex-wrap: wrap;
