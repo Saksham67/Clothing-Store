@@ -21,7 +21,7 @@ An online platform that allows users to browse, filter, and purchase clothing it
 ### 💻 Frontend:
 - HTML5, CSS3
 - JavaScript (ES6+)
-- Bootstrap / Tailwind CSS (choose your UI framework)
+- Bootstrap
 
 ### 🌐 Backend:
 - Node.js
