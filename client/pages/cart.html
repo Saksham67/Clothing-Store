@@ -1,79 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TrendWear - Cart</title>
-  <link rel="stylesheet" href="../assets/css/styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/client/assets/css/cart.css">
 </head>
 <body>
+  <div class="container">
+    <div class="cart-items" id="cart-items"></div>
 
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="container nav-container">
-      <h1 class="logo">TrendWear</h1>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="products.html">Shop</a></li>
-          <li><a href="cart.html" class="active">Cart</a></li>
-          <li><a href="login.html">Login</a></li>
-        </ul>
-      </nav>
+    <div class="summary">
+      <h2>Order Summary</h2>
+      <p id="total-products"></p>
+      <p>Estimated Shipping: $0.00</p>
+      <hr />
+      <p class="total-price" id="total-price"></p>
+      <p style="font-size: 12px; color: #999">Including GST</p>
+      <button class="btn">CONTINUE</button>
+      <div class="continue">CONTINUE SHOPPING</div>
     </div>
-  </header>
+  </div>
 
-  <!-- Cart Section -->
-  <section class="container cart-section">
-    <h2>Your Shopping Cart</h2>
-    <div class="cart-wrapper">
-      <div class="cart-table">
-        <table>
-          <thead>
-            <tr>
-              <th>Product</th>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Qty</th>
-              <th>Subtotal</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><img src="../assets/images/product1.jpg" alt="T-shirt" class="cart-img" /></td>
-              <td>Graphic T-Shirt</td>
-              <td>₹499</td>
-              <td><input type="number" min="1" value="2" /></td>
-              <td>₹998</td>
-            </tr>
-            <tr>
-              <td><img src="../assets/images/product2.jpg" alt="Dress" class="cart-img" /></td>
-              <td>Elegant Dress</td>
-              <td>₹899</td>
-              <td><input type="number" min="1" value="1" /></td>
-              <td>₹899</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+  <script>
+    const sizes = ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL'];
 
-      <div class="cart-summary">
-        <h3>Order Summary</h3>
-        <p>Items Total: <strong>₹1897</strong></p>
-        <p>Shipping: <strong>Free</strong></p>
-        <p class="grand-total">Total: <strong>₹1897</strong></p>
-        <button class="btn checkout-btn">Proceed to Checkout</button>
-      </div>
-    </div>
-  </section>
+    const cart = [
+      { name: "Dress with bow", color: "Black", size: "M", price: 1690, qty: 1, img: "https://via.placeholder.com/140x180" },
+      { name: "Printed midi dress", color: "NA", size: "M", price: 1280, qty: 1, img: "https://via.placeholder.com/140x180" },
+      { name: "Faux leather jacket", color: "NA", size: "M", price: 2480, qty: 1, img: "https://via.placeholder.com/140x180" }
+    ];
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-content">
-      <p>&copy; 2025 TrendWear. All rights reserved.</p>
-    </div>
-  </footer>
+    function renderCart() {
+      const cartItemsContainer = document.getElementById("cart-items");
+      cartItemsContainer.innerHTML = "";
 
+      let total = 0;
+      cart.forEach((item, index) => {
+        total += item.price * item.qty;
+
+        let sizeOptions = sizes.map(size => `
+          <option value="${size}" ${item.size === size ? 'selected' : ''}>${size}</option>
+        `).join('');
+
+        const itemHTML = `
+          <div class="cart-item">
+            <img src="${item.img}" alt="${item.name}">
+            <div class="item-details">
+              <div class="item-name">${item.name}</div>
+              <div class="item-info">
+                Colour: ${item.color} |
+                Size: 
+                <select onchange="updateSize(${index}, this.value)">
+                  ${sizeOptions}
+                </select>
+              </div>
+            </div>
+            <div class="price-qty">
+              <div class="price">$${(item.price * item.qty).toFixed(2)}</div>
+              <div class="qty-controls">
+                <button onclick="updateQty(${index}, -1)">-</button>
+                <span>${item.qty}</span>
+                <button onclick="updateQty(${index}, 1)">+</button>
+              </div>
+            </div>
+          </div>`;
+
+        cartItemsContainer.innerHTML += itemHTML;
+      });
+
+      document.getElementById("total-products").textContent = `Total Products: $${total.toFixed(2)}`;
+      document.getElementById("total-price").textContent = `$${total.toFixed(2)}`;
+    }
+
+    function updateQty(index, change) {
+      if (cart[index].qty + change >= 1) {
+        cart[index].qty += change;
+        renderCart();
+      }
+    }
+
+    function updateSize(index, newSize) {
+      cart[index].size = newSize;
+    }
+
+    renderCart();
+  </script>
 </body>
 </html>

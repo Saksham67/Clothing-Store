@@ -2,83 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TrendWear - Home</title>
-  <link rel="stylesheet" href="../assets/css/styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clothing Store</title>
+  <link rel="stylesheet" href="/client/assets/css/Style.css" />
 </head>
 <body>
+  <header>
+    <div class="top-nav">
+      <div class="logo">LOGO</div>
 
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="container nav-container">
-      <h1 class="logo">TrendWear</h1>
       <nav>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="products.html">Shop</a></li>
-          <li><a href="cart.html">Cart</a></li>
-          <li><a href="login.html">Login</a></li>
-        </ul>
+        <a href="#">MENS</a>
+        <a href="#">WOMENS</a>
+        <a href="#">KIDS</a>
       </nav>
+    
+      <div class="search-cart">
+        <input type="text" placeholder="Search here" />
+        <a href = "user-profile.html"><img src="/client/images/user.png" height="40px" width="40px" /> </a>
+        <a href = "cart.html" ><img src="/client/images/cart.png" height="40px" width="40px" /></a>
+        <a href = "wishlist.html" ><img src="/client/images/heart.png" height="40px" width="40px" /></a>
+
+        <!-- ✅ Login/Signup link -->
+        <a href="login-signup.html" class="login-link">Login/Signup</a>
+      </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h2>Discover Your Style</h2>
-      <p>Trendy clothes for men and women at unbeatable prices.</p>
-      <a href="products.html" class="btn">Shop Now</a>
-    </div>
-  </section>
-
-  <!-- Categories -->
-  <section class="categories container">
-    <h3 class="section-title">Shop by Category</h3>
-    <div class="category-grid">
-      <div class="category-card">
-        <img src="../assets/images/men.jpg" alt="Men" />
-        <h4>Men</h4>
+  <main>
+    <section class="gallery">
+      <section>
+      <div class="row">
+        <img src="https://via.placeholder.com/200x300" alt="">
+        <img src="https://via.placeholder.com/200x300" alt="">
+        <img src="https://via.placeholder.com/200x300" alt="">
+        <img src="https://via.placeholder.com/200x300" alt="">
+        <img src="https://via.placeholder.com/200x300" alt="">
       </div>
-      <div class="category-card">
-        <img src="../assets/images/women.jpg" alt="Women" />
-        <h4>Women</h4>
+      </section>
+      <section>
+      <h2>TRENDING OUTFIT</h2>
+      <div class="row">
+        <img src="https://via.placeholder.com/200x300" alt="">
+        <img src="https://via.placeholder.com/200x300" alt="">
+        <img src="https://via.placeholder.com/200x300" alt="">
+        <img src="https://via.placeholder.com/200x300" alt="">
       </div>
-      <div class="category-card">
-        <img src="../assets/images/kids.jpg" alt="Kids" />
-        <h4>Kids</h4>
+      </section>
+      <section>
+      <h2>TRENDING OUTFIT</h2>
+      <div class="row">
+        <img src="https://via.placeholder.com/200x300" alt="">
+        <img src="https://via.placeholder.com/200x300" alt="">
+        <img src="https://via.placeholder.com/200x300" alt="">
+        <img src="https://via.placeholder.com/200x300" alt="">
+        <img src="https://via.placeholder.com/200x300" alt="">
       </div>
-    </div>
-  </section>
-
-  <!-- Featured Products -->
-  <section class="products container">
-    <h3 class="section-title">Featured Products</h3>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="../assets/images/product1.jpg" alt="T-shirt" />
-        <h4>Stylish T-Shirt</h4>
-        <p>₹199</p>
-        <a href="product.html" class="btn small">View</a>
-      </div>
-      <div class="product-card">
-        <img src="../assets/images/product2.jpg" alt="Jacket" />
-        <h4>Winter Jacket</h4>
-        <p>₹999</p>
-        <a href="product.html" class="btn small">View</a>
-      </div>
-      <div class="product-card">
-        <img src="../assets/images/product3.jpg" alt="Dress" />
-        <h4>Floral Dress</h4>
-        <p>₹799</p>
-        <a href="product.html" class="btn small">View</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta">
+      </section>
+    </section>
+      <section class="cta">
     <h3>Join Our Mailing List</h3>
     <p>Get 10% off your first purchase</p>
     <form>
@@ -86,13 +68,11 @@
       <button type="submit" class="btn">Subscribe</button>
     </form>
   </section>
-
-  <!-- Footer -->
-  <footer class="footer">
+   <footer class="footer">
     <div class="container footer-content">
-      <p>&copy; 2025 TrendWear. All rights reserved.</p>
+    <p>&copy; 2025 BrandName. All rights reserved.</p>
     </div>
   </footer>
-
+  </main>
 </body>
 </html>
