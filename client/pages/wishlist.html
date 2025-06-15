@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wishlist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+    }
+
+    .wishlist-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #1e1e2f;
+    }
+
+    .wishlist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .wishlist-item {
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+
+    .wishlist-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .wishlist-item img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .wishlist-info {
+      padding: 1.2rem;
+    }
+
+    .wishlist-info h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: #2c2c3a;
+    }
+
+    .wishlist-info p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 1.2rem;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #e63946;
+    }
+
+    .btn {
+      background-color: #1d3557;
+      color: #fff;
+      padding: 0.6rem 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #457b9d;
+    }
+
+    .limit-message {
+      text-align: center;
+      margin-top: 2rem;
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="wishlist-container">
+    <h1>My Wishlist</h1>
+    <div class="wishlist-grid" id="wishlistGrid">
+
+      <div class="wishlist-item">
+        <img src="https://via.placeholder.com/400x280" alt="Product">
+        <div class="wishlist-info">
+          <h3>Stylish Denim Jacket</h3>
+          <p>Comfortable and trendy denim jacket for your casual outings.</p>
+          <div class="actions">
+            <span class="price">₹2,499</span>
+            <button class="btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="wishlist-item">
+        <img src="https://via.placeholder.com/400x280" alt="Product">
+        <div class="wishlist-info">
+          <h3>Elegant Cotton Kurti</h3>
+          <p>Breathable cotton kurti, perfect for summer comfort and style.</p>
+          <div class="actions">
+            <span class="price">₹1,199</span>
+            <button class="btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="wishlist-item">
+        <img src="https://via.placeholder.com/400x280" alt="Product">
+        <div class="wishlist-info">
+          <h3>Sporty Running Shoes</h3>
+          <p>High-performance running shoes for daily wear and workouts.</p>
+          <div class="actions">
+            <span class="price">₹3,499</span>
+            <button class="btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <p class="limit-message" id="limitMessage" style="display: none;">Wishlist limit reached. You can only save up to 30 items.</p>
+  </div>
+
+  <script>
+    const wishlistGrid = document.getElementById('wishlistGrid');
+    const limitMessage = document.getElementById('limitMessage');
+
+    function addWishlistItem() {
+      if (wishlistGrid.children.length >= 30) {
+        limitMessage.style.display = 'block';
+        return;
+      }
+
+      const item = document.createElement('div');
+      item.className = 'wishlist-item';
+      item.innerHTML = `
+        <img src="https://via.placeholder.com/400x280" alt="Product">
+        <div class="wishlist-info">
+          <h3>New Product</h3>
+          <p>Description of the new product.</p>
+          <div class="actions">
+            <span class="price">₹999</span>
+            <button class="btn">Add to Cart</button>
+          </div>
+        </div>
+      `;
+      wishlistGrid.appendChild(item);
+    }
+  </script>
+</body>
+</html>
